@@ -1,0 +1,187 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+</head>
+<body>
+    <script>
+//object
+         var obj1={name:"yf"};
+         var obj2={age:21};
+         var obj3={say:function(){
+              console.log("你好");
+             }}
+     console.log(Object.assign(obj1,obj2,obj3));   
+     console.log(obj1,obj2);    
+
+     Object.is(5,6);              
+     Object.is(NaN,NaN);   
+
+     function a(){
+     }
+      var b = new a();
+     console.log(a.prototype.isPrototypeOf(b)); 
+
+      var obj = new Object();
+      Object.defineProperty(obj, 'name', {
+     configurable: false,
+      writable: true,
+      enumerable: true,           
+      value: '张三'
+ })
+ console.log(obj.name) 
+
+ var obj = new Object();
+ Object.defineProperties(obj, {
+     name: {
+         value: '张三',
+         configurable: false,
+         writable: true,
+         enumerable: true
+     },
+     age: {
+         value: 18,
+        configurable: true
+     }
+ })
+ console.log(obj.name, obj.age) 
+
+ var obj={name:'张三',age:18};
+ Object.freeze(obj)
+ obj.name='李四';
+ obj.sex='男';
+ console.log(obj) 
+
+ var obj={
+   name:'小米',
+   age:18,
+   say:function(){
+    console.log('你好');
+   }
+ }
+ for (var i in obj) {
+   console.log(obj[i]);
+ }
+
+ var obj = {'a':'123','b':'345'};
+      console.log(Object.keys(obj));  
+ var obj1 = { 100: "a", 2: "b", 7: "c"};
+      console.log(Object.keys(obj1)); 
+ var obj2 = Object.create({}, { getFoo : { value :  function () { return this.foo } } });
+ obj2.foo = 1;
+ console.log(Object.keys(obj2));
+
+
+ var obj = { name: 'zhangsan', age: 20 };
+   console.log(Object.values(obj));
+
+
+
+ //math
+        Math.abs(-5)	//返回x的绝对值。
+        Math.round(4.6)	//返回x四舍五入之后的整数值
+        Math.ceil(4.8)	//返回x的近似值，向上取整
+        Math.floor(4.4)	//返回x的近似值，向下取整
+        Math.max(5,8)	//返回x,y中的最大值
+        Math.min(1,2)	//返回x,y中的最小值
+        Math.random()	//返回一个0~1之间的数字
+        Math.trunc(4.9)	//将x的小数部分去除，返回整数部分(ie不能使用)
+        Math.pow(5,9)	//取x的y次幂
+        Math.sqrt(7)	//返回x的平方根
+        Math.sin(60)	//返回x的正弦值
+        Math.cos(45)	//返回x的余弦值
+        Math.tan(28)	//返回x的正切值
+        Math.asin(30)	//返回x的反正弦值
+        Math.acos(30)	//返回x的反余弦值
+        Math.atan(45)	//返回x的反正切值
+        NumberObject.toFixed(5.65)	//可把 Number 四舍五入为指定小数位数的数字
+
+
+
+//Sting
+//单引号和双引号的区别
+//在js中单引号和双引号没有区别，都可以表示字符或字符串。
+//json格式的文件必须使用双引号
+    //"name": "张三",
+    //"age": 20
+    var str ='abcdbde';
+   console.log(str.charAt(2));
+   console.log(str.charCodeAt(5));
+   console.log(String.fromCharCode(69));
+   var str='hello world';
+    str.indexOf('a');         
+    str.indexOf('o'); 
+    var str='hello world';
+    console.log(str.slice(str.replace('o','a')));
+   console.log(str.slice(3,7));
+   var str='Hello World';
+   console.log(str.split('o'));   
+   console.log(str.split(''));
+   console.log(str.toLowerCase());
+   console.log(str.toUpperCase());
+   console.log(str.trim());
+   console.log(str.match('o'));
+   console.log(str.concat('a','b','c'));
+   'abc'.padStart(10);         // "       abc"
+   'abc'.padStart(10, "123");  // "1231231abc"
+   'abc'.padStart(6,"123465"); // "123abc"
+   'abc'.padStart(8, "0");     // "00000abc"
+   'abc'.padStart(1);          // "abc"
+   'abc'.padEnd(10);         // "abc       "
+   'abc'.padEnd(10, "123");  // "abc1231231"
+   'abc'.padEnd(6,"123465"); // "abc123"
+   'abc'.padEnd(8, "0");     // "abc00000"
+   'abc'.padEnd(1);          // "abc"
+
+
+
+//array
+   var arr=[1,5,9,8,7];
+   console.log(arr.push(4));
+   console.log(arr.unshift(4));
+   console.log(arr.pop());
+   console.log(arr.shift());
+   console.log(arr.splice(3,1,6));
+   console.log(arr.join(";"));
+   console.log(arr.slice(2,5));
+   console.log();
+   var arr1=[1,2,3];
+   var arr2=[4,5,6];
+   console.log(arr1.concat(arr2,[7,8,9]));
+   var arr=[1,5,6,99,52,663,22,66,552,123,6,622];
+   console.log(arr.indexOf(22));  
+   var arr3=[1,5,6,99,52,663,22,66,552,6,622];
+      arr3.sort(function(a,b){
+           return a-b;
+    })
+        console.log(arr3);
+    var arr=[1,5,6,99,52,663,22,66,552,123,6,622];
+    var newArr =arr.filter(function(value,index){
+       return value>100;       
+    })
+        console.log(newArr);
+    var arr=[1,5,6,99,52,663,22,66,552,123,6,622];
+    var end=arr3.map(function(value,index){
+          return value*2;        
+         });
+         console.log(end);
+        
+var arr3=[1,5,6,99,52,663,22,66,552,123,6,622];
+var end=arr3.every(function(value,index){
+          return value<500;
+   });
+console.log(end);  
+var arr=[1,5,8,6,9,4,2,3];
+console.log(arr.reverse());     
+console.log(arr);   
+console.log(Array.of(1, 2));
+var arr = [1,2,{name:"张三"}]
+arr.includes(2)     // true
+arr.includes(4)     // false
+console.log(arr.includes({name:"张三"}));//为啥是false     
+    </script>
+</body>
+<div></div>
+</html>
